@@ -1,0 +1,66 @@
+<!DOCTYPE html><html>
+<head>
+	<title>&ldquo;Mackerel&rdquo;</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body><center>
+
+	<table style="position:absolute; left:10px; top:10px; background-color:black;">
+		<td>
+			<a href="#popup1"><img title="Information" src="../jdgmiles.github.io/questionmark.png" style="width:60px; height:60px"></a><br>
+			<a href="https://twitter.com/jimdgmiles" target=blank_><img title="James Miles on Twitter" src="../jdgmiles.github.io/twitter.png" style="width:60px; height:60px"></a><br>
+			<a href="http://jdgmiles.github.io/" target="_blank"><img title="Projects Page" src="../jdgmiles.github.io/jdgm.png" style="width:60px; height:60px"></a>
+		</td>
+	</table>
+
+	<div id="popup1" class="overlay">
+		<div class="popup">
+			<br>
+			<a class="close" style="right: 30px;" href="#">&times;</a>
+			<div style="font-family:Georgia; color:white; text-align:center; text-decoration:underline; font-size:50px">Text to 3x3</div>
+			<span style="font-family:Georgia; font-size:40px; color:white; text-align:justify;"><br>Click the text in the box to experiment...<br><br><a href="https://en.wikipedia.org/wiki/3x3">3x3 on Wikipedia</a></span><br><br><br>
+		</div>
+	</div>
+
+	<div style="width:1070px">
+		<table><tr>
+			<td><textarea id="stations" class="stationsbox" type="text" onblur="if(this.value==''){this.value='Stations'}" onfocus="if(this.value=='Stations'){this.value='';}">Stations</textarea></td>
+		</tr></table>
+		<table><tr>
+			<td><textarea id="mackerel" class="mackerelbox" type="text" onblur="if(this.value==''){this.value='Mackerel'}" onfocus="if(this.value=='Mackerel'){this.value='';}">Mackerel</textarea></td>
+		</tr></table>
+		<br>
+		<table><tr>
+			<td><div class="outputbox" id="results" style="vertical-align:top; padding:10px;10px;10px;10px;" contenteditable="true">Results</div></td>
+		</tr></table>
+</div>
+
+</center></body>
+</html>
+
+<script type="text/javascript">
+
+var stations;
+var station=[];
+var mackerel;
+var stillvalid=[];
+
+function calculate(){
+
+	stations=document.getElementById("stations").value;
+	station=stations.split(', ');
+	mackerel=document.getElementById("mackerel").value;
+
+	for(i=0; i<station.length; i++){stillvalid[i]=1;}
+
+	document.getElementById("results").innerHTML=stillvalid;
+
+	setTimeout(calculate, 100);
+
+}
+
+calculate();
+
+</script>
